@@ -62,7 +62,6 @@ void LaneDetection::TimeCallBack(const ros::TimerEvent& event) // called every 0
   // x_point_to_follow = path_point_to_follow.x;
   // y_point_to_follow = path_point_to_follow.y;
   // ROS_INFO_STREAM("the x position is = " << path_point_to_follow << "the y position is = \n" << path_point_to_follow);
-  // theta_calculation(path_point_to_follow);
   
   
   
@@ -236,7 +235,7 @@ else
   int point_index;
   for (size_t i=0; i < vehicle_all_center_lines.size(); i++)
   {
-    if (vehicle_all_center_lines[i].x < x_min && vehicle_all_center_lines[i].x>=4.5 && vehicle_all_center_lines[i].y <= 2 && vehicle_all_center_lines[i].y >= -2) // to element noise
+    if (vehicle_all_center_lines[i].x < x_min && vehicle_all_center_lines[i].x>=4.3 && vehicle_all_center_lines[i].y <= 2 && vehicle_all_center_lines[i].y >= -2) // to element noise
     {
       point_index = int(i);
       x_min = vehicle_all_center_lines[i].x;
