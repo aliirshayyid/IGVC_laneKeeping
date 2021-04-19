@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="footprint_to_optical" args="1.75 0.0 2.1 0.0 0.5 0.0 base_footprint lane_camera_optical" /> -->
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="optical_to_camera" args="0 0 0 -1.57079632679 0 -1.57079632679 lane_camera_optical lane_camera" /> -->
+
+
+  <group ns="camera_front" >
+    <!-- Process raw camera image and apply lens rectification -->
+    <node pkg="image_proc" type="image_proc" name="image_proc" />
+
+
+
+    <!-- Example node -->
+    <node pkg="ece6460_lane_detection_example" type="lane_detection_example" name="lane_detection" output="screen" />
+  </group>
+
+  <!-- Gazebo simulation -->
+  <!--
+  <arg name="headless" default="false" />
+  <include file="$(find dataspeed_dbw_gazebo)/launch/dataspeed_dbw_gazebo.launch" >
+    <arg name="sim_param_file" value="$(find avs_lecture_launch)/yaml/lane_keep_world_sim_params.yaml" />
+    <arg name="world_name" value="$(find avs_lecture_gazebo)/worlds/lane_keep_world.world" />
+    <arg name="headless" value="$(arg headless)" />
+  </include>
+
+  -->
+  <!-- Rviz -->
+  <node pkg="rviz" type="rviz" name="all_system_Gazebo" args="-d $(find ece6460_lane_detection_example)/rviz/all_system_Gazebo.rviz" /> 
+  
+</launch>
