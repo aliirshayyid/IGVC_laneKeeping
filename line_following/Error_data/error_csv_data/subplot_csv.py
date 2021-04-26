@@ -22,7 +22,7 @@ axs[1, 1].plot(data4['x'], data4['y'], 'tab:red')
 axs[1, 1].set_title('p = 1, d = 1.8')
 
 for ax in axs.flat:
-    ax.set(xlabel='x-label', ylabel='y-label')
+    ax.set(xlabel='Time', ylabel='Error')
 
 # Hide x labels and tick labels for top plots and y ticks for right plots.
 #for ax in axs.flat:
